@@ -1,4 +1,4 @@
-package com.example.foodorderapp.domain.pojo
+package com.example.foodorderapp.domain.model
 
 data class Meal(
     val dateModified: Any,
