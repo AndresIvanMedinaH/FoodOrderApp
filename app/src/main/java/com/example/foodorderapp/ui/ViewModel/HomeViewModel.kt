@@ -1,4 +1,4 @@
-package com.example.foodorderapp.ui.presentation
+package com.example.foodorderapp.ui.ViewModel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.foodorderapp.data.repository.IMealsRepository
-import com.example.foodorderapp.domain.model.ChoosenRandomMeal
+import com.example.foodorderapp.domain.model.MealDetail
 import com.example.foodorderapp.domain.model.Meal
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -23,6 +23,8 @@ class HomeViewModel @Inject constructor(private  val  iMealsRepository: IMealsRe
     val choosenRndmMealLiveData: LiveData<Meal>
         get() = _choosenRandomMealLiveData
 
+    var _mealDetail = MutableLiveData<MealDetail>()
+        private set
 
     /*
     * this func provide the mechanism to bring from
@@ -33,19 +35,34 @@ class HomeViewModel @Inject constructor(private  val  iMealsRepository: IMealsRe
     internal fun getRandomMeal() {
         viewModelScope.launch(Dispatchers.IO) {
             val meal = iMealsRepository.getMeal()
-            meal?.let {
+            meal.let {
                 _choosenRandomMealLiveData.postValue(meal)
-                Log.d("Test", "${meal?.strMealThumb}")
+                Log.d("Test", meal.strMealThumb)
             }
         }
     }
 
-    internal fun getChoosenRandomMealDetail():ChoosenRandomMeal{
-        val choosenRandomMeal = ChoosenRandomMeal(
-            _choosenRandomMealLiveData.value?.strMeal.toString(),
-        _choosenRandomMealLiveData.value?.strMealThumb.toString(),
-        _choosenRandomMealLiveData.value?.strInstructions.toString())
-        return  choosenRandomMeal
+    /******************************** Master detail MVVM ************************************/
+    internal fun getMealByID(id: String){
+
+        val idmeal = id.toInt()
+        Log.d("ID", idmeal.toString())
+        viewModelScope.launch {
+            _mealDetail.value = idmeal.let { iMealsRepository.getResultsOfMealByID(it) }
+        }
+    }
+
+
+
+
+
+    /***********************************************************************************/
+    internal fun getMealDetail(): MealDetail {
+        return MealDetail(
+            choosenRndmMealLiveData.value?.strMeal.toString(),
+            choosenRndmMealLiveData.value?.strMealThumb.toString(),
+            choosenRndmMealLiveData.value?.strInstructions.toString()
+        )
     }
 
     fun observeRandomMealLiveData(): LiveData<Meal> {

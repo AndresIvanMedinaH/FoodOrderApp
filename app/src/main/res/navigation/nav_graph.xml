@@ -11,26 +11,25 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_HomeFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            android:id="@+id/action_Home_to_detail"
+            app:destination="@id/detailFragment"/>
     </fragment>
+
     <fragment
         android:id="@+id/categoriesFragment"
         android:name="com.example.foodorderapp.ui.navigationfragments.CategoriesFragment"
         android:label="fragment_categories"
         tools:layout="@layout/fragment_categories" />
+
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.example.foodorderapp.ui.navigationfragments.FavoritesFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" />
+
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.foodorderapp.ui.navigationfragments.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" >
-        <argument
-            android:name="SelectedRandomMealDetail"
-            app:argType="com.example.foodorderapp.domain.model.ChoosenRandomMeal" />
-    </fragment>
+        tools:layout="@layout/fragment_detail" />
 </navigation>

@@ -1,9 +1,11 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.plugin.serialization'
     id 'com.google.dagger.hilt.android'
     id 'kotlin-kapt'
-    id 'org.jetbrains.kotlin.plugin.serialization'
+
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
@@ -26,15 +28,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+    // Agrega la configuración de la JVM Toolchain
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = "17"
+    }
+    // Opcionalmente, puedes especificar la versión del compilador de Java
+    // para garantizar que se utilice Java 17
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     buildFeatures{
         viewBinding true
+
     }
 }
 
@@ -43,19 +49,20 @@ dependencies {
     def nav_version = "2.5.3"
     // navigation component
     implementation "androidx.fragment:fragment-ktx:1.5.7"
-    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
-    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
 
+    implementation 'androidx.activity:activity-ktx:1.7.1'
     // Hilt for Android
-    implementation 'com.google.dagger:hilt-android:2.44.2'
-    kapt 'com.google.dagger:hilt-compiler:2.44'
+    implementation 'com.google.dagger:hilt-android:2.46.1'
+    kapt 'com.google.dagger:hilt-compiler:2.46.1'
 
     //retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     //glide
-    implementation 'com.github.bumptech.glide:glide:4.14.2'
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
 
     //videoModel mvvm
     def lifecycle_version = "2.6.1"
@@ -63,17 +70,12 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
+
     //serialization
     implementation 'org.jetbrains.kotlin:kotlin-serialization:1.8.21'
 
 
-    //extensions for interoperability between fragments activities and viewmodels
-    implementation 'androidx.fragment:fragment-ktx:1.5.7'
-    implementation 'androidx.activity:activity-ktx:1.7.1'
-
-
-
-
+    implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'

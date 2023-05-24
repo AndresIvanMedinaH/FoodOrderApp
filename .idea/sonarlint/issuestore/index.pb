@@ -1,7 +1,23 @@
 
-A
-gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
-X
-(gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
 ?
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
+w
+G.idea/sonarlint/issuestore/0/5/05efc8b1657769a27696d478ded1e95f38737233,3\c\3c8c56407c35e5f5ebbd6c7250a79af8128a13a6
+Å
+Q.idea/sonarlint/securityhotspotstore/0/5/05efc8b1657769a27696d478ded1e95f38737233,2\5\2534b7ffebad46793fc4d77da07aca83b23dd835
+á
+Wapp/src/main/java/com/example/foodorderapp/ui/navigationfragments/CategoriesFragment.kt,6\3\6396414fbfa6d41f79387997d4b29db04dc107b4
+Ü
+Vapp/src/main/java/com/example/foodorderapp/ui/navigationfragments/FavoritesFragment.kt,0\7\07a50a8c020957d11c02180c2afe90ddb38c1297
+r
+Bapp/src/main/java/com/example/foodorderapp/FoodOrderApplication.kt,2\d\2d3c9228588759d96e33f606d9cb7d7df88ee8bd
+o
+?app/src/main/java/com/example/foodorderapp/domain/model/Meal.kt,e\5\e5eb226ceb6eeabbdb7876de9a1d6e17d5767ec5
+p
+@app/src/main/java/com/example/foodorderapp/domain/model/Meals.kt,6\b\6bb1e38f7a12d81045f9ad3848a585444120491e
+v
+Fapp/src/main/java/com/example/foodorderapp/core/di/RepositoryModule.kt,5\d\5d2eedd4e33180c5c7fdd993e825e78514c5edb3
+z
+Japp/src/main/java/com/example/foodorderapp/ui/mainactivity/MainActivity.kt,0\8\08e1a141db43148e0e8e76b76fc5f89404a639df
+A
+gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
